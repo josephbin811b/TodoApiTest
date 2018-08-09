@@ -51,7 +51,13 @@ namespace TodoApi.Controllers
         {
             return _context.TodoItems.ToList();
         }
-               
+
+        //2018.8.9 Github test for PR
+        [HttpGet]
+        public ActionResult<List<TodoItem>> GetAll2()
+        {
+            return _context.TodoItems.ToList();
+        }
 
         [HttpGet("{id}", Name = "GetTodo")]
         public ActionResult<TodoItem> GetById(long id)
@@ -65,7 +71,7 @@ namespace TodoApi.Controllers
         }
 
         //因為資料是新增在in-memory database, 
-        //下次WebAPI重啟, 新增的資料會不見
+        //下次WebAPI重啟, 新增的資料會不見        
         [HttpPost]
         public IActionResult Create(TodoItem item)
         {
